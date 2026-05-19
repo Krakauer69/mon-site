@@ -1,0 +1,271 @@
+/* ============================================
+   PREMIUM ANIMATIONS - GSAP Style Vanilla
+   High performance, GPU accelerated, 60fps
+   ============================================ */
+
+/* 1. Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px var(--accent-primary);
+}
+
+/* 2. Magnetic Buttons & Morph Hover */
+.morph-hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.morph-hover:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    border-color: var(--accent-secondary);
+}
+
+/* 3. 3D Tilt Cards */
+.data-tilt {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+    will-change: transform, box-shadow;
+    transform-style: preserve-3d;
+}
+
+/* Smooth return when mouse leaves */
+.data-tilt.resetting {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Inner glow pseudo-element for 3D cards */
+.data-tilt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.data-tilt:hover::before {
+    opacity: 1;
+}
+
+/* 4. Intersection Observer Reveal Animations */
+.data-reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.data-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Support custom delays via CSS variables */
+.data-reveal[style*="--reveal-delay"] {
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* 5. Staggered Entrance (Tech Stack) */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: staggerFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-play-state: paused;
+    /* Paused until JS kicks in */
+    /* Fallback if no JS: delay based on index */
+    animation-delay: calc(var(--stagger-idx, 0) * 80ms);
+}
+
+.is-visible .stagger-item {
+    animation-play-state: running;
+}
+
+@keyframes staggerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 6. Typography Sweeps */
+.text-sweep {
+    background: linear-gradient(90deg, var(--text-main) 0%, var(--accent-secondary) 50%, var(--text-main) 100%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* 7. UI UX Pro Max Advanced Keyframes */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 15px var(--accent-glow), inset 0 0 10px var(--accent-glow); border-color: var(--accent-primary); }
+    50% { box-shadow: 0 0 35px var(--accent-primary), inset 0 0 20px var(--accent-secondary); border-color: var(--accent-secondary); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.shimmer-effect {
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2.5s infinite linear;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient-shift-bg {
+    background: linear-gradient(270deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+}
+
+/* Allow users to opt-out of animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .data-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* --- 2026 animation refinement --- */
+#scroll-progress {
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.22);
+}
+
+.morph-hover:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 18px 36px rgba(99, 102, 241, 0.16);
+}
+
+.data-reveal {
+    transform: translateY(26px) scale(0.992);
+    transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.data-reveal.is-visible {
+    transform: translateY(0) scale(1);
+}
+
+.text-sweep {
+    animation-duration: 8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .text-sweep,
+    .gradient-shift-bg,
+    .shimmer-effect {
+        animation: none !important;
+    }
+}
+
+@keyframes premiumSweep {
+  0%, 12% { transform: translateX(0) skewX(-22deg); opacity: 0; }
+  18% { opacity: 0.45; }
+  48% { transform: translateX(420%) skewX(-22deg); opacity: 0.16; }
+  100% { transform: translateX(420%) skewX(-22deg); opacity: 0; }
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scaleX(0.88); opacity: 0.72; }
+  50% { transform: scaleX(1.06); opacity: 1; }
+}
+
+.has-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ui-ripple {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.16) 34%, transparent 72%);
+  transform: scale(0.14);
+  animation: rippleBurst 640ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-theme="light"] .ui-ripple {
+  background: radial-gradient(circle, rgba(99,102,241,0.24) 0%, rgba(34,211,238,0.12) 34%, transparent 72%);
+}
+
+@keyframes rippleBurst {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.14);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes portraitOrbit {
+  0% { transform: rotate(0deg) scale(0.985); opacity: 0.72; }
+  50% { transform: rotate(180deg) scale(1.015); opacity: 1; }
+  100% { transform: rotate(360deg) scale(0.985); opacity: 0.72; }
+}
+
+@keyframes portraitOrbitReverse {
+  0% { transform: rotate(0deg) scale(1.02); opacity: 0.38; }
+  50% { transform: rotate(-180deg) scale(0.985); opacity: 0.18; }
+  100% { transform: rotate(-360deg) scale(1.02); opacity: 0.38; }
+}
+
+@keyframes portraitPulse {
+  0%, 100% {
+    opacity: 0.34;
+    transform: scale(0.992);
+    filter: drop-shadow(0 0 0 rgba(236, 72, 153, 0));
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.018);
+    filter: drop-shadow(0 0 18px rgba(236, 72, 153, 0.18));
+  }
+}

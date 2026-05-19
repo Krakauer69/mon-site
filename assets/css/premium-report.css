@@ -1,0 +1,113 @@
+
+/* --- PREMIUM ENGINEERING REPORT UI --- */
+.report-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.report-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+}
+
+.report-text {
+    color: var(--text-2);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Terminal Code Block */
+.terminal-block {
+    background: #0d1117;
+    border-radius: var(--radius-md);
+    border: 1px solid #30363d;
+    overflow: hidden;
+    margin: 24px 0;
+}
+.terminal-header {
+    background: #161b22;
+    padding: 8px 16px;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+.terminal-dot.r { background: #ff5f56; }
+.terminal-dot.y { background: #ffbd2e; }
+.terminal-dot.g { background: #27c93f; }
+.terminal-body {
+    padding: 16px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.85rem;
+    color: #c9d1d9;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow-x: auto;
+}
+.cmd-prompt { color: #58a6ff; font-weight: bold; margin-right: 8px; user-select: none; }
+
+/* Image Grid */
+.report-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+.report-image-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in;
+}
+.report-image-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.15);
+    border-color: var(--accent);
+}
+.report-image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- 2026 report UI refinement --- */
+.report-section {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), var(--surface-1);
+    box-shadow: var(--shadow-elevated);
+}
+
+.report-title {
+    letter-spacing: -0.03em;
+}
+
+.terminal-block {
+    box-shadow: 0 22px 44px rgba(2, 6, 23, 0.28);
+}
+
+.report-image-card {
+    border-radius: 20px;
+}
+
+.report-image-card:hover {
+    transform: translateY(-4px) scale(1.01);
+}

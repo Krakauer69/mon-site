@@ -1,0 +1,158 @@
+
+/* ============================================
+   ULTRA FLUID MODERN UPGRADE
+   - Scroll Progress Indicator
+   - Mouse Follower (Cursor)
+   - Staggered Animations
+   ============================================ */
+:root {
+  --cursor-size: 32px;
+}
+
+/* Custom Cursor */
+body {
+  /* cursor: none !important; */ /* Hide default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, width 0.2s, height 0.2s, background-color 0.2s;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-hover {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 212, 255, 0.1);
+  border-color: transparent;
+}
+
+/* Page Transition Overlay */
+.page-transition {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--bg);
+  z-index: 99999;
+  transform-origin: bottom;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.page-transition.active {
+  transform: scaleY(0);
+}
+
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #a855f7);
+  z-index: 9998;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Floating Elements Animation */
+@keyframes floatY {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero img, .card-icon {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* Glassmorphism strict for navbar */
+.app-top {
+  background: rgba(5, 5, 16, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
+[data-theme="light"] .app-top {
+  background: rgba(250, 250, 252, 0.7) !important;
+}
+
+
+/* Magic Glow Effect */
+.bento-card, .cyber-card, .report-image-card {
+    position: relative;
+}
+.bento-card::after, .cyber-card::after, .report-image-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 212, 255, 0.06), transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.bento-card:hover::after, .cyber-card:hover::after, .report-image-card:hover::after {
+    opacity: 1;
+}
+
+/* Ensure contents stay above the glow */
+.bento-card > *, .cyber-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Clean up body padding to prevent horizontal scroll from glow */
+body {
+    overflow-x: hidden;
+}
+
+/* --- 2026 ultra fluid refinement --- */
+:root {
+  --cursor-size: 28px;
+}
+
+.custom-cursor {
+  border-color: rgba(99, 102, 241, 0.6);
+  background-color: rgba(99, 102, 241, 0.02);
+}
+
+.custom-cursor-dot {
+  background-color: var(--accent-primary);
+}
+
+.cursor-hover {
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+.bento-card::after,
+.cyber-card::after,
+.report-image-card::after {
+  background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.075), transparent 38%);
+}
+
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  .custom-cursor,
+  .custom-cursor-dot,
+  .page-transition {
+    display: none !important;
+  }
+}

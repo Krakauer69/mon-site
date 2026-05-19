@@ -1,0 +1,269 @@
+/* ============================================
+   DESIGN SYSTEM — Tokens (Premium Bento UI)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  color-scheme: light dark;
+
+  /* --- Typography --- */
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-sans);
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  
+  /* Features pour Inter: cv05 (l miniscule courbe), cv11 (0 sans barre), ss01 (alternatives modernes) */
+  --font-features: "cv05", "cv11", "ss01";
+
+  /* --- Layout & Spacing --- */
+  --container-max: 1240px;
+  --gutter: 24px;
+  --header-height: 72px;
+  --section-gap: clamp(28px, 5vw, 56px);
+
+  /* --- Radii (Apple-like smooth corners) --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-full: 9999px;
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-elastic: cubic-bezier(0.5, 1.25, 0.35, 1); /* Pour les intéractions pop */
+  
+  --dur-1: 150ms; /* Hover rapide */
+  --dur-2: 250ms; /* Transitions UI */
+  --dur-3: 400ms; /* Layout / Page load */
+
+  /* --- Colors: Light Theme (Default) --- */
+  --bg: #f8f9fc;
+  --bg-elev: #ffffff;
+  
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-2: rgba(255, 255, 255, 0.90);
+  --surface-hover: rgba(255, 255, 255, 0.5);
+
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+  
+  --text: #0f172a;           /* Slate 900 */
+  --text-2: #475569;         /* Slate 600 */
+  --text-3: #94a3b8;         /* Slate 400 */
+  --text-inv: #ffffff;
+
+  /* --- Brand & Accents --- */
+  --primary: #6366f1;        /* Indigo 500 */
+  --primary-hover: #4f46e5;  /* Indigo 600 */
+  --primary-light: rgba(99, 102, 241, 0.12);
+  
+  --accent: #22d3ee;         /* Cyan 400 */
+  --danger: #ef4444;         /* Red 500 */
+  --warning: #f59e0b;        /* Amber 500 */
+  
+  --ring-focus: rgba(99, 102, 241, 0.4);
+
+  /* --- Gradients --- */
+  --grad-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --grad-accent: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --grad-surface: 
+    radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(100% 100% at 100% 0%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+
+  /* --- Shadows (Depth & Glass) --- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-1: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.04), inset 0 0 0 1px rgba(255,255,255,0.5);
+  --shadow-2: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-3: 0 20px 25px -5px rgba(15, 23, 42, 0.10), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+  
+  /* --- Glassmorphism --- */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-blur: blur(20px);
+
+  /* --- Layers (Z-Index) --- */
+  --z-back: -1;
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-dock: 100;
+  --z-dropdown: 200;
+  --z-modal: 999;
+  --z-cursor: 9999;
+}
+
+/* --- Dark Theme Overrides --- */
+[data-theme='dark'] {
+  --bg: #030712;             /* Gray 950 */
+  --bg-elev: #111827;        /* Gray 900 */
+  
+  --surface: rgba(17, 24, 39, 0.70);
+  --surface-2: rgba(31, 41, 55, 0.85);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  
+  --text: #f8fafc;           /* Slate 50 */
+  --text-2: #94a3b8;         /* Slate 400 */
+  --text-3: #64748b;         /* Slate 500 */
+  --text-inv: #000000;
+
+  --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255,255,255,0.05);
+  --shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 20px 30px -5px rgba(0, 0, 0, 0.5);
+
+  --glass-bg: rgba(17, 24, 39, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  
+  /* Subtler gradient on dark mode */
+  --grad-surface: 
+    radial-gradient(100% 60% at 50% 0%, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+}
+
+/* ============================================
+   BASE RESET & UTILITIES
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  background-image: var(--grad-surface);
+  background-attachment: fixed; /* Parallax effect simple */
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  
+  /* Typographie optimisée */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: var(--font-features);
+  
+  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
+}
+
+/* --- Selection Style --- */
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* --- Focus Accessibility --- */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 99px;
+  border: 2px solid var(--bg); /* Padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-3);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  max-width: 65ch; /* Longueur de ligne lisible */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-out);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- Utility Classes --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Helper pour masquer visuellement mais garder accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  :root {
+    --gutter: 16px;
+    --radius-xl: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

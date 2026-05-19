@@ -1,0 +1,453 @@
+/* ============================================
+   PREMIUM ENHANCEMENTS v1.0
+   Extra polish for the portfolio
+   ============================================ */
+
+/* ===== ENHANCED CARD HOVER ===== */
+.bento-card,
+.cyber-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient border on hover */
+.bento-card::before,
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            transparent 0%,
+            transparent 40%,
+            var(--accent-primary) 50%,
+            var(--accent-tertiary) 60%,
+            transparent 70%,
+            transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite paused;
+}
+
+.bento-card:hover::before,
+.cyber-card:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===== STAGGERED REVEAL ANIMATION ===== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stagger delays via CSS */
+.reveal-on-scroll:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.reveal-on-scroll:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.reveal-on-scroll:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.reveal-on-scroll:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.reveal-on-scroll:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+.reveal-on-scroll:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+/* ===== BETTER TECH PILLS ===== */
+.tech-pill,
+.tech-stack>div {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-pill::after,
+.tech-stack>div::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 200%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tech-pill:hover::after,
+.tech-stack>div:hover::after {
+    opacity: 0.5;
+    animation: shimmer 2s ease infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(50%) translateY(-50%);
+    }
+}
+
+/* ===== IMPROVED BUTTONS ===== */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* ===== HEADER SCROLL EFFECT ===== */
+.app-top {
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-top.scrolled {
+    background: var(--bg-glass-hover) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== BETTER IMAGE HOVER ===== */
+.hero-visual img,
+.card-image img,
+img.hero-image {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.hero-visual:hover img,
+.card-image:hover img {
+    transform: scale(1.03);
+}
+
+/* ===== LINK UNDERLINE ANIMATION ===== */
+.footer-nav a,
+.error-link .link-title {
+    position: relative;
+}
+
+.footer-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.footer-nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== FLOATING ELEMENTS ===== */
+@keyframes float-subtle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.hero-badge {
+    animation: float-subtle 4s ease-in-out infinite;
+}
+
+/* ===== CURSOR GLOW (on cards) ===== */
+.bento-card,
+.cyber-card {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.bento-card::after,
+.cyber-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(99, 102, 241, 0.06),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.bento-card:hover::after,
+.cyber-card:hover::after {
+    opacity: 1;
+}
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+    border-radius: 2px;
+}
+
+/* ===== ENHANCED SCROLL TOP BUTTON ===== */
+.scroll-top {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ===== LIGHT MODE REFINEMENTS ===== */
+[data-theme="light"] .bento-card::after,
+[data-theme="light"] .cyber-card::after {
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(79, 70, 229, 0.04),
+            transparent 40%);
+}
+
+[data-theme="light"] .btn-primary::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* ===== RESPONSIVE POLISH ===== */
+@media (max-width: 768px) {
+
+    .bento-card::before,
+    .cyber-card::before {
+        display: none;
+        /* Disable gradient border on mobile for perf */
+    }
+
+    .hero-badge {
+        animation: none;
+        /* Disable floating on mobile */
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .bento-card::before,
+    .cyber-card::before,
+    .bento-card::after,
+    .cyber-card::after,
+    .hero-badge,
+    .btn-primary::before {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+.shimmer-hover:hover { position:relative; overflow:hidden; } .shimmer-hover:hover::after { content:''; position:absolute; top:0; left:-100%; width:50%; height:100%; background:linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent); transform:skewX(-20deg); animation:shimmer 1.5s infinite; z-index:1; }
+
+
+/* Timeline Stages UI/UX Pro Max */
+.timeline-container {
+    position: relative;
+    padding-left: 40px;
+    margin-top: 40px;
+}
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);
+    border-radius: 2px;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    box-shadow: 0 0 10px var(--accent-secondary);
+    z-index: 2;
+}
+
+
+/* ============================================
+   UX/UI MASTER UPGRADE 2026
+   - Improved readability
+   - Smooth buttery transitions
+   - Deep diffused shadows
+   ============================================ */
+
+/* 1. TYPOGRAPHY & READABILITY */
+p, li, .text-muted, .report-text {
+    line-height: 1.75 !important;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, .section-title, .brand__name {
+    letter-spacing: -0.025em !important;
+    line-height: 1.2 !important;
+}
+
+/* 2. BUTTERY SMOOTH MICRO-INTERACTIONS */
+a, button, .bento-card, .cyber-card, .premium-dl-btn, .report-image-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 3. DIFFUSED PREMIUM SHADOWS ON CARDS */
+.bento-card, .cyber-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .bento-card:hover, 
+[data-theme="light"] .cyber-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px var(--accent) !important;
+    transform: translateY(-4px);
+}
+
+[data-theme="dark"] .bento-card:hover, 
+[data-theme="dark"] .cyber-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.1), 0 0 0 1px var(--accent) !important;
+    transform: translateY(-4px);
+}
+
+/* 4. BREATHING ROOM (PADDING/MARGIN) */
+.bento-card, .cyber-card {
+    padding: 32px !important; /* Force generous padding */
+}
+
+/* 5. FOCUS STATES (ACCESSIBILITY) */
+*:focus-visible {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 4px !important;
+}
+
+/* 6. BETTER SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+    border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* --- 2026 premium enhancement overrides --- */
+.bento-card::before,
+.cyber-card::before {
+    opacity: 0.18;
+    background: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(34,211,238,0.08) 46%, transparent 72%);
+    animation: none;
+}
+
+.bento-card:hover::before,
+.cyber-card:hover::before {
+    opacity: 0.46;
+}
+
+.bento-card::after,
+.cyber-card::after {
+    background: radial-gradient(360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.08), transparent 44%);
+    transition: opacity 220ms ease;
+}
+
+.reveal-on-scroll {
+    transform: translateY(24px);
+}
+
+.reveal-on-scroll.revealed,
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-badge {
+    animation-duration: 6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-badge {
+        animation: none !important;
+    }
+}
