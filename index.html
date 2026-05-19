@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+  <!-- Anti-flash: Apply theme before render -->
+  <script>
+    (function () {
+      const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="Z3JVwnjvrIiCdtl1Q85J3x4H_3wO3dFJ_J1xmCkXOsY" />
+  <title>Elmin Mugkanovic | Admin Sys & Réseaux - Portfolio BTS SIO</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=20260403"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260403"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260403"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260403"/>
+
+  <meta name="description"
+    content="Portfolio de Elmin Mugkanovic, étudiant BTS SIO SISR à Lyon. Spécialiste Administration Système, Réseaux, Cybersécurité et Automatisation (Power Automate). Recherche Alternance 2026.">
+  <meta name="keywords"
+    content="Elmin Mugkanovic, BTS SIO SISR, Administrateur Système, Cybersécurité, Réseaux, Lyon, Alternance, Portfolio IT">
+  <meta name="author" content="Elmin Mugkanovic">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jasir-portfolio.fr/">
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jasir-portfolio.fr/">
+  <meta property="og:title" content="Elmin Mugkanovic | Portfolio Admin Sys & Cyber">
+  <meta property="og:description"
+    content="Étudiant BTS SIO option SISR. Découvrez mes projets, mes stages (Firex, CNRS) et mes compétences en infrastructure et cybersécurité.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elmin Mugkanovic | Portfolio">
+  <meta name="twitter:description" content="Admin Sys & Réseaux en devenir. Portfolio et Projets.">
+
+  <!-- CSS & Fonts Preload -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style">
+  <link rel="preload" href="assets/css/cyber-theme.css" as="style">
+  <link rel="preload" href="assets/css/premium-enhancements.css" as="style">
+  <link rel="preload" href="assets/css/ultra-effects.css" as="style">
+  <link rel="preload" href="assets/css/premium-footer.css" as="style">
+  <link rel="preload" href="assets/css/animations.css" as="style">
+
+  <!-- Critical Inline CSS -->
+  <style>
+    /* Critical UI colors & reset to prevent FOUC & layout shifts */
+    :root {
+      --bg-page: #050508;
+      --text-main: #f0f0f5;
+      --bg-glass: rgba(15, 15, 25, 0.6);
+      --font-display: 'Outfit', 'Space Grotesk', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --header-height: 72px;
+      --accent-primary: #6366f1;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .app-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: var(--bg-glass);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      padding-top: calc(var(--header-height) + 80px);
+      padding-bottom: 60px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-visual {
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    /* Enhanced Buttons */
+    .hero-actions .btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-actions .btn-primary {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(34, 211, 238, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+    }
+
+    .hero-actions .btn-primary:hover {
+      box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .hero-actions .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] .hero-actions .btn-secondary {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #1a1a2e;
+    }
+
+    .hero-actions .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    [data-theme="light"] .hero-actions .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 24px;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(15, 15, 25, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] .bento-card {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Asymmetric Bento Grid */
+    @media (min-width: 1025px) {
+      .bento-grid>a.bento-card:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      /* AP = large */
+      .bento-grid>a.bento-card:nth-child(2) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      /* Stages = wide */
+      .bento-grid>a.bento-card:nth-child(7) {
+        grid-column: span 2;
+      }
+
+      /* Projets = wide */
+    }
+
+    @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bento-grid>a.bento-card:nth-child(1),
+      .bento-grid>a.bento-card:nth-child(2) {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-grid>a.bento-card {
+        grid-column: span 1 !important;
+      }
+    }
+
+    /* Home page responsive hardening */
+    body.home-page main.container {
+      padding-bottom: clamp(56px, 7vw, 92px);
+    }
+
+    body.home-page .hero-section {
+      display: flex;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    body.home-page .hero-content {
+      flex: 1;
+      max-width: 680px;
+    }
+
+    body.home-page .hero-visual {
+      flex-shrink: 0;
+    }
+
+    body.home-page .hero-visual .holo-card {
+      width: min(320px, 78vw) !important;
+      height: min(320px, 78vw) !important;
+      margin-inline: auto;
+    }
+
+    body.home-page .hero-visual img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    @media (max-width: 1024px) {
+      body.home-page .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      body.home-page .hero-section {
+        padding-top: calc(var(--header-height) + 54px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body.home-page .hero-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      body.home-page .hero-actions {
+        justify-content: center;
+        gap: 10px !important;
+      }
+
+      body.home-page .hero-actions .btn {
+        min-height: 40px;
+        padding: 10px 14px !important;
+        border-radius: 999px !important;
+        font-size: 12px !important;
+      }
+
+      body.home-page .hero-subtitle {
+        font-size: 15px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body.home-page .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      body.home-page .hero-title {
+        line-height: 1.08;
+      }
+
+      body.home-page .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px !important;
+        width: 100%;
+        max-width: 380px;
+        margin-inline: auto;
+      }
+
+      body.home-page .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        min-width: 0;
+        padding: 12px 10px !important;
+        font-size: 13px !important;
+      }
+
+      body.home-page .hero-actions .btn:first-child {
+        /* Retiré pour que le bouton CV ait la même taille que les autres */
+        grid-column: span 1;
+      }
+    }
+
+    /* ===== INFINITE SCROLLING MARQUEE (TECH STACK) ===== */
+    .marquee-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      /* Smooth fade mask at edges */
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      padding: 10px 0;
+    }
+    
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 45s linear infinite;
+      gap: 16px;
+    }
+    .marquee-track.reverse {
+      animation-direction: reverse;
+      animation-duration: 55s; /* slightly different speed for nice parallax */
+    }
+    
+    .marquee-track:has(.marquee-pill:hover) {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 8px)); } /* Scroll exactly half the cloned content */
+    }
+
+    .marquee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: rgba(15, 15, 25, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .marquee-pill i {
+      font-size: 1.25rem;
+    }
+
+    .marquee-pill:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.25);
+      transform: translateY(-3px) scale(1.02);
+      color: #fff;
+    }
+
+    [data-theme="light"] .marquee-pill {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #1a1a2e;
+    }
+    [data-theme="light"] .marquee-pill:hover {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+    }
+    
+    /* ===== SOFT SKILLS MINI BENTO ===== */
+    .soft-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .soft-bento-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+      .soft-bento-grid .bento-card {
+        padding: 16px !important;
+      }
+      .soft-bento-grid .bento-card h3 {
+        font-size: 13px !important;
+      }
+      .soft-bento-grid .bento-card p {
+        font-size: 11.5px !important;
+        line-height: 1.4 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .soft-bento-grid .bento-card>div:first-child {
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+      /* Redimensionner l'icône sur mobile */
+      .soft-bento-grid .bento-card>div:first-child>div {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 18px !important;
+        border-radius: 10px !important;
+      }
+      .marquee-pill {
+        padding: 8px 14px;
+        font-size: 12.5px;
+        gap: 8px;
+        border-radius: 999px;
+      }
+      .marquee-pill i {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+  <!-- Defer Non-Critical CSS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" media="print"
+    onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/cyber-theme.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/premium-enhancements.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/ultra-effects.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/premium-footer.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/cyber-theme.css">
+    <link rel="stylesheet" href="assets/css/premium-enhancements.css">
+    <link rel="stylesheet" href="assets/css/ultra-effects.css">
+    <link rel="stylesheet" href="assets/css/premium-footer.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+  </noscript>
+
+  <!-- PWA & Mobile Installable -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0d12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+
+<body class="home-page">
+  <!-- Progress Bar Top -->
+  <div id="scroll-progress"></div>
+
+  <div class="mesh-orb" id="hero-orb"></div>
+
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"
+    style="position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.4; will-change: transform, opacity;"></canvas>
+
+  <!-- Navigation (Minimal Pill Style) -->
+  <nav class="app-top minimal-pill">
+    <div class="container app-top__bar">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Elmin Mugkanovic</span>
+        <span class="brand__meta">BTS SIO SISR • 1ère année</span>
+      </a>
+
+      <div class="ux-top-actions">
+        <button id="global-theme-toggle" class="btn btn-secondary theme-toggle" data-theme-toggle
+          aria-label="Basculer le thème" title="Dark/Light Mode"
+          style="padding: 8px 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;">
+          <i class="ri-moon-clear-fill theme-icon-dark" style="font-size: 1.2rem;"></i>
+          <i class="ri-sun-fill theme-icon-light" style="font-size: 1.2rem; display:none;"></i>
+        </button>
+        <a href="contact.html" class="btn btn-primary ux-header-cta" aria-label="Contact" title="Contact"
+          style="width:40px;height:40px;padding:0;">
+          <i class="ri-mail-line"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container" style="position: relative; z-index: 1;">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span
+            style="width: 8px; height: 8px; background: var(--accent-secondary); border-radius: 50%; animation: pulse 2s infinite;"></span>
+          OPEN TO STAGE 2027
+        </div>
+
+        <h1 class="hero-title">
+          Recherche d'un stage<br>
+          <span class="text-gradient text-gradient-animated cyber-shift">Réseaux & Cybersécurité</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          
+        </p>
+
+        <div class="hero-actions">
+          </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="holo-card" style="position: relative; width: 280px; height: 280px;">
+          <!-- Animated border rings -->
+          <div
+            style="position: absolute; inset: -12px; border: 2px solid var(--accent-primary); border-radius: 24px; opacity: 0.3; animation: pulse 3s infinite;">
+          </div>
+          <div
+            style="position: absolute; inset: -24px; border: 1px solid var(--accent-tertiary); border-radius: 28px; opacity: 0.15; animation: pulse 3s infinite 0.5s;">
+          </div>
+
+          <img src="assets/images/jasir-chess.webp" alt="Elmin Mugkanovic" width="280" height="280"
+            loading="eager" fetchpriority="high" decoding="async"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack (Infinite Marquee) -->
+    <section id="tech-stack-section" style="margin-bottom: 80px;" data-reveal="fade-up">
+      <h2 style="font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 32px; font-size: 16px; font-weight: 600; letter-spacing: 0.15em; text-align: center; position: relative;">
+        :: TECH_STACK
+        <span style="content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:40px; height:2px; background:linear-gradient(90deg, transparent, var(--accent-primary), transparent); box-shadow:0 0 10px var(--accent-primary);"></span>
+      </h2>
+      
+      <div class="marquee-container">
+        <!-- Row 1 (Left) -->
+        <div class="marquee-track">
+          <!-- original -->
+          <div class="marquee-pill"><i class="ri-shield-check-line" style="color:var(--accent-primary)"></i> Cybersécurité</div>
+          <div class="marquee-pill"><i class="ri-ubuntu-fill" style="color:#E95420"></i> Linux / Debian</div>
+          <div class="marquee-pill"><i class="ri-windows-fill" style="color:#00a4ef"></i> Windows Server</div>
+          <div class="marquee-pill"><i class="ri-building-4-line" style="color:var(--accent-secondary)"></i> Active Directory</div>
+          <div class="marquee-pill"><i class="ri-server-line" style="color:#E3611C"></i> Proxmox VE</div>
+          <!-- duplicate for infinite seamless loop -->
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-shield-check-line" style="color:var(--accent-primary)"></i> Cybersécurité</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-ubuntu-fill" style="color:#E95420"></i> Linux / Debian</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-windows-fill" style="color:#00a4ef"></i> Windows Server</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-building-4-line" style="color:var(--accent-secondary)"></i> Active Directory</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-server-line" style="color:#E3611C"></i> Proxmox VE</div>
+          </div>
+
+        <!-- Row 2 (Right) -->
+        <div class="marquee-track reverse">
+          <!-- original -->
+          <div class="marquee-pill"><i class="ri-router-line" style="color:#1BA0D7"></i> Cisco Networking</div>
+          <div class="marquee-pill"><i class="ri-windows-fill" style="color:#00a4ef"></i> Microsoft 365</div>
+          <!-- duplicate -->
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-router-line" style="color:#1BA0D7"></i> Cisco Networking</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-windows-fill" style="color:#00a4ef"></i> Microsoft 365</div>
+          </div>
+
+        <!-- Row 3 (Left) -->
+         <div class="marquee-track">
+          <!-- original -->
+          <div class="marquee-pill"><i class="ri-hard-drive-2-line" style="color:var(--text-main)"></i> Backup M365 / Synology</div>
+          <div class="marquee-pill"><i class="ri-ticket-2-line" style="color:#FFB300"></i> GLPI / OCS</div>
+          <div class="marquee-pill"><i class="ri-customer-service-2-line" style="color:var(--accent-tertiary)"></i> Support IT</div>
+          <div class="marquee-pill"><i class="ri-terminal-box-line" style="color:#FFF"></i> PowerShell / Python</div>
+          <!-- duplicate -->
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-hard-drive-2-line" style="color:var(--text-main)"></i> Backup M365 / Synology</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-ticket-2-line" style="color:#FFB300"></i> GLPI / OCS</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-customer-service-2-line" style="color:var(--accent-tertiary)"></i> Support IT</div>
+          <div class="marquee-pill" aria-hidden="true"><i class="ri-terminal-box-line" style="color:#FFF"></i> PowerShell / Python</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soft Skills (Mini Bento 2x2) -->
+    <section id="soft-skills-section" style="margin-bottom: 80px;" data-reveal="fade-up">
+      <h2 style="font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 32px; font-size: 16px; font-weight: 600; letter-spacing: 0.15em; text-align: center; position: relative;">
+        :: SOFT_SKILLS
+        <span style="content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:40px; height:2px; background:linear-gradient(90deg, transparent, var(--accent-secondary), transparent); box-shadow:0 0 10px var(--accent-secondary);"></span>
+      </h2>
+      
+      <div class="soft-bento-grid">
+        <div class="bento-card cyber-card" style="padding: 28px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+            <div style="width:48px; height:48px; border-radius:12px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-primary); font-size:24px;">
+              <i class="ri-team-line"></i>
+            </div>
+            <h3 style="font-size:1.2rem; font-weight:600; margin:0;">Communication & Équipe</h3>
+          </div>
+          <p class="card-desc" style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">
+            Vulgarisation technique, dialogue client fluide et synergie avec les équipes métier (vécu lors de mes stages au CNRS et Firex).
+          </p>
+        </div>
+
+        <div class="bento-card cyber-card" style="padding: 28px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+            <div style="width:48px; height:48px; border-radius:12px; background:rgba(34,211,238,0.1); border:1px solid rgba(34,211,238,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-secondary); font-size:24px;">
+              <i class="ri-compass-3-line"></i>
+            </div>
+            <h3 style="font-size:1.2rem; font-weight:600; margin:0;">Autonomie & Rigueur</h3>
+          </div>
+          <p class="card-desc" style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">
+            Capacité à mener des projets d'infrastructure de A à Z (montage de maquettes, documentations techniques exhaustives).
+          </p>
+        </div>
+
+        <div class="bento-card cyber-card" style="padding: 28px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+            <div style="width:48px; height:48px; border-radius:12px; background:rgba(168,85,247,0.1); border:1px solid rgba(168,85,247,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-tertiary); font-size:24px;">
+              <i class="ri-refresh-line"></i>
+            </div>
+            <h3 style="font-size:1.2rem; font-weight:600; margin:0;">Adaptabilité</h3>
+          </div>
+          <p class="card-desc" style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">
+            Montée en compétence rapide sur de nouveaux environnements systèmes/réseaux, avec un apprentissage continu passionné.
+          </p>
+        </div>
+
+        <div class="bento-card cyber-card" style="padding: 28px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+            <div style="width:48px; height:48px; border-radius:12px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); display:flex; align-items:center; justify-content:center; color:#10B981; font-size:24px;">
+              <i class="ri-focus-3-line"></i>
+            </div>
+            <h3 style="font-size:1.2rem; font-weight:600; margin:0;">Analyse & Résolution</h3>
+          </div>
+          <p class="card-desc" style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">
+            Troubleshooting méthodique, diagnostic réseau et résolution de pannes en environnement de production critique.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid -->
+    <section id="home-bento" class="bento-grid">
+      <!-- Stages Card -->
+      <a href="stages.html" class="bento-card data-tilt data-reveal" style="--reveal-delay: 200ms;">
+        <div class="card-title text-gradient">
+          <i class="ri-building-2-line" style="font-size: 24px;"></i>
+          STAGES
+        </div>
+        
+        <span class="card-subtitle" style="margin-top: auto; color: var(--accent-secondary);">
+          
+        </span>
+      </a>
+      <!-- Veille Card -->
+      <a href="veille.html" class="bento-card data-tilt data-reveal" style="--reveal-delay: 400ms;">
+        <div class="card-title">
+          <i class="ri-radar-line" style="font-size: 24px; opacity: 0.7;"></i>
+          VEILLE TECH
+        </div>
+        
+      </a>
+
+      <!-- CV Card -->
+      <a href="cv.html" class="bento-card data-tilt data-reveal" style="--reveal-delay: 500ms;">
+        <div class="card-title">
+          <i class="ri-file-user-line" style="font-size: 24px; opacity: 0.7;"></i>
+          CV & PARCOURS
+        </div>
+        <p class="card-desc">Formation, compétences et expériences.</p>
+      </a>
+
+      <!-- Projet Pro Card -->
+      <a href="projet-professionnel.html" class="bento-card data-tilt data-reveal" style="--reveal-delay: 600ms;">
+        <div class="card-title">
+          <i class="ri-rocket-2-line" style="font-size: 24px; opacity: 0.7;"></i>
+          OBJECTIF 2027
+        </div>
+        
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer Premium -->
+  <footer class="premium-footer">
+    <div class="footer-content container">
+      <!-- Identité -->
+      <div class="footer-brand">
+        <h2 class="footer-logo" style="font-size: 1.5rem;">Elmin Mugkanovic</h2>
+        <p class="footer-tagline">Étudiant BTS SIO SISR • Admin Sys & Réseaux</p>
+        
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/elmin-mugkanovic/" target="_blank" aria-label="Profil LinkedIn"><i
+              class="ri-linkedin-fill"></i></a>
+          </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-nav">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html" aria-label="Aller à l'accueil">Accueil</a></li>
+          <li><a href="stages.html" aria-label="Voir mes stages">Stages</a></li>
+          <li><a href="cv.html" aria-label="Consulter mon CV">CV & Parcours</a></li>
+          <li><a href="projets-personnels.html" aria-label="Voir mes projets personnels">Projets</a></li>
+          <li><a href="contact.html" aria-label="Me contacter">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li><i class="ri-mail-send-line"></i> <a href="mailto:elmin.180905@gmail.com"
+              aria-label="Envoyer un email">elmin.180905@gmail.com</a>
+          </li>
+          <li><i class="ri-map-pin-line"></i> Lyon, France (Permis B)</li>
+        </ul>
+        <div class="footer-cta">
+          </div>
+      </div>
+    </div>
+
+    <!-- Bas de footer -->
+    <div class="footer-bottom container">
+      <p>&copy; <span id="year">2026</span> Elmin Mugkanovic • Construit avec passion 🚀</p>
+      <button id="scrollToTop" class="scroll-top" aria-label="Retour en haut"
+        onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <i class="ri-arrow-up-line"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jasir-portfolio.fr/#person",
+          "name": "Elmin Mugkanovic",
+          "url": "https://jasir-portfolio.fr/",
+          "jobTitle": "Étudiant BTS SIO SISR",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Lycée La Martinière Duchère",
+            "location": "Lyon"
+          },
+          "knowsAbout": ["Proxmox", "Docker", "Cybersécurité", "Administration Systèmes", "Réseaux", "Linux", "Microsoft 365"],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lyon",
+            "addressCountry": "FR"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/elmin-mugkanovic/",
+            "https://github.com/elmin-mugkanovic"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jasir-portfolio.fr/#website",
+          "url": "https://jasir-portfolio.fr/",
+          "name": "Portfolio Elmin Mugkanovic - BTS SIO SISR Lyon",
+          "publisher": {"@id": "https://jasir-portfolio.fr/#person"}
+        }
+      ]
+    }
+  </script>
+
+  <script src="assets/js/cyber-main.js" defer></script>
+  <script src="assets/js/ultra-effects.js" defer></script>
+  <script src="assets/js/ux-engine.js" defer></script>
+  <script src="assets/js/particles-v2.js" defer></script>
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+    }
+  </script>
+
+  <script src="./ultra-fluid.js"></script>
+</body>
+
+</html>

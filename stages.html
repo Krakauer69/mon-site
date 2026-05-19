@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr"><head><script>
+(function(){try{var storageKey="portfolio-theme";var stored=localStorage.getItem(storageKey);var theme=(stored==="dark"||stored==="light")?stored:((window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light");document.documentElement.setAttribute("data-theme",theme);}catch(e){document.documentElement.setAttribute("data-theme",(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light");}})();
+</script><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Stages et missions en entreprise - Elmin Mugkanovic" name="description"/>
+<meta content="#0a0a0f" name="theme-color"/>
+<title>Stages | Elmin Mugkanovic</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=20260403"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260403"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260403"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260403"/>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<!-- Styles -->
+<link href="assets/css/cyber-theme.css" rel="stylesheet"/> <link href="assets/css/premium-enhancements.css" rel="stylesheet"/>
+<link href="assets/css/premium-footer.css" rel="stylesheet"/>
+<link as="style" href="assets/css/animations.css" rel="preload"/>
+<link href="assets/css/animations.css" rel="stylesheet"/>
+<link href="assets/css/responsive.css" rel="stylesheet"/>
+<!-- PWA & Mobile Installable -->
+<link href="manifest.json" rel="manifest"/>
+<meta content="#0d0d12" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<link href="./assets/css/premium-v2.css" rel="stylesheet"/>
+<meta content="Elmin Mugkanovic" name="author"/>
+<meta content="Stages | Elmin Mugkanovic" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="Stages et missions en entreprise - Elmin Mugkanovic" property="og:description"/>
+<link href="./assets/css/global-nav.css" rel="stylesheet"/>
+<link href="./assets/css/ultra-fluid.css" rel="stylesheet"/>
+<style>
+   .stages-page .bento-grid > a.bento-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transform: translateZ(0);
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    will-change: transform, box-shadow;
+    transition:
+      transform .36s cubic-bezier(.22,.61,.36,1),
+      border-color .28s ease,
+      box-shadow .36s cubic-bezier(.22,.61,.36,1),
+      background-color .28s ease;
+   }
+   .stages-page .bento-grid > a.bento-card::after {
+    opacity: 0 !important;
+    transition: opacity .32s ease !important;
+    background:
+      radial-gradient(240px circle at var(--mx) var(--my), rgba(255,255,255,.2), transparent 55%),
+      linear-gradient(120deg, rgba(34,211,238,.08), rgba(99,102,241,.08));
+   }
+   .stages-page .bento-grid > a.bento-card:hover,
+   .stages-page .bento-grid > a.bento-card:focus-visible {
+    transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-7px) scale(1.01);
+    border-color: rgba(0, 212, 255, .45) !important;
+    box-shadow: 0 20px 38px rgba(8, 12, 30, .36), 0 0 0 1px rgba(0, 212, 255, .2) inset;
+   }
+   .stages-page .bento-grid > a.bento-card.is-tilting {
+    transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-7px) scale(1.01);
+   }
+   .stages-page .bento-grid > a.bento-card:hover::after,
+   .stages-page .bento-grid > a.bento-card:focus-visible::after {
+    opacity: 1 !important;
+   }
+   .stages-page .bento-grid > a.bento-card .card-image-wrapper img {
+    transform: scale(1);
+    transition: transform 1.05s cubic-bezier(.19,1,.22,1), filter .55s ease;
+   }
+   .stages-page .bento-grid > a.bento-card .card-image-wrapper img.zoomable {
+    transform: scale(1) !important;
+    transition: transform 1.05s cubic-bezier(.19,1,.22,1), filter .55s ease !important;
+   }
+   .stages-page .bento-grid > a.bento-card .card-image-wrapper img.zoomable:hover {
+    transform: scale(1) !important;
+   }
+   .stages-page .bento-grid > a.bento-card:hover .card-image-wrapper img,
+   .stages-page .bento-grid > a.bento-card:focus-visible .card-image-wrapper img {
+    transform: scale(1.04);
+    filter: saturate(1.07) contrast(1.02);
+   }
+   .stages-page .bento-grid > a.bento-card:hover .card-image-wrapper img.zoomable,
+   .stages-page .bento-grid > a.bento-card:focus-visible .card-image-wrapper img.zoomable {
+    transform: scale(1.04) !important;
+   }
+   html[data-theme="light"] .stages-page .bento-grid > a.bento-card:hover,
+   html[data-theme="light"] .stages-page .bento-grid > a.bento-card:focus-visible {
+    box-shadow: 0 18px 34px rgba(37, 50, 90, .16), 0 0 0 1px rgba(59, 130, 246, .22) inset;
+    border-color: rgba(37, 99, 235, .32) !important;
+   }
+   @media (hover: none), (pointer: coarse) {
+    .stages-page .bento-grid > a.bento-card:hover,
+    .stages-page .bento-grid > a.bento-card:focus-visible {
+     transform: none;
+     box-shadow: none;
+    }
+   }
+  </style>
+<link href="https://portfolio.jasir.fr/stages.html" rel="canonical"/><meta content="https://portfolio.jasir.fr/stages.html" property="og:url"/><meta content="https://portfolio.jasir.fr/assets/images/og-cover.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Stages | Elmin Mugkanovic" name="twitter:title"/><meta content="Stages et missions en entreprise - Elmin Mugkanovic" name="twitter:description"/><meta content="https://portfolio.jasir.fr/assets/images/og-cover.png" name="twitter:image"/></head>
+<body class="stages-page">
+<!-- GLOBAL NAVBAR -->
+<div id="scroll-progress"></div> <div class="mesh-orb"></div>
+<canvas id="particle-canvas" style="position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.4;"></canvas>
+<nav class="app-top">
+<div class="container app-top__bar">
+<a aria-label="Accueil" class="brand" href="index.html">
+<span class="brand__name">Elmin Mugkanovic</span>
+<span class="brand__meta">BTS SIO SISR • 1ère année</span>
+</a>
+<div style="display: flex; gap: 15px; align-items: center;">
+<button aria-label="Basculer le thème" class="btn btn-secondary" id="global-theme-toggle" style="padding: 8px 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;" title="Dark/Light Mode">
+<i class="ri-moon-clear-fill theme-icon-dark" style="font-size: 1.2rem;"></i>
+<i class="ri-sun-fill theme-icon-light" style="font-size: 1.2rem; display: none;"></i>
+</button>
+<a class="btn btn-secondary" href="index.html" style="padding: 8px 16px; font-size: 12px;">Retour Accueil</a>
+<a class="btn btn-primary" href="contact.html" style="padding: 8px 16px; font-size: 12px; background: var(--accent); color: #000; border:none;"><i class="ri-mail-send-line" style="margin-right: 6px;"></i>Contact</a>
+</div>
+</div>
+</nav>
+<!-- Navigation -->
+<!-- Main Content -->
+<main class="container" style="position: relative; z-index: 1; padding-top: calc(var(--header-height) + 60px); padding-bottom: 80px; padding-top: 140px; padding-bottom: 80px;">
+<!-- Page Header -->
+<section style="text-align: center; margin-bottom: 60px;">
+<div class="hero-badge" style="margin: 0 auto 20px;">EXPÉRIENCE PROFESSIONNELLE</div>
+<h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3rem);">
+
+
+
+    Stages &amp; <span class="text-gradient">Missions</span>
+</h1>
+
+</section>
+<!-- Bento Grid -->
+<section class="bento-grid" style="gap: 2.5rem;">
+<!-- Tecumseh -->
+<a class="bento-card span-2 has-image reveal-on-scroll" href="stage-annee1.html">
+<div class="card-image-wrapper" data-no-lightbox>
+<img alt="Tecumseh" height="2040" loading="lazy" src="assets/images/stages/logo stage/cc-in2p3.webp" width="4001"/>
+<div class="card-tags">
+<span class="tag">Mai-Juin 2026</span>
+
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">🔧 Tecumseh</h3>
+<span class="card-subtitle">Stage Admin Système • 7 semaines</span>
+
+</div>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Footer Premium -->
+<footer class="premium-footer">
+<div class="footer-content container">
+<div class="footer-brand">
+<h3 class="footer-logo">Elmin Mugkanovic</h3>
+<p class="footer-tagline">Étudiant BTS SIO SISR • Admin Sys &amp; Réseaux</p>
+
+<div class="footer-socials">
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/elmin-mugkanovic/" target="_blank" rel="noopener"><i class="ri-linkedin-fill"></i></a>
+</div>
+</div>
+<div class="footer-nav">
+<h4>Navigation</h4>
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="stages.html">Stages</a></li>
+<li><a href="cv.html">CV &amp; Parcours</a></li>
+<li><a href="projets-personnels.html">Projets</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footer-contact">
+<h4>Contact</h4>
+<ul class="contact-list">
+<li><i class="ri-mail-send-line"></i> <a href="mailto:elmin.180905@gmail.com">elmin.180905@gmail.com</a>
+</li>
+<li><i class="ri-map-pin-line"></i> Lyon, France (Permis B)</li>
+</ul>
+
+</div>
+</div>
+<div class="footer-bottom container">
+<p>© <span id="year">2026</span> Elmin Mugkanovic • Construit avec passion 🚀</p>
+<button aria-label="Retour en haut" class="scroll-top" id="scrollToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="ri-arrow-up-line"></i></button>
+</div>
+</footer>
+<script src="assets/js/cyber-main.js"></script>
+<script defer="" src="assets/js/ux-engine.js"></script>
+<!-- PWA Service Worker Registration -->
+<script>
+
+
+
+  if ('serviceWorker' in navigator) {
+
+
+
+   window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+
+
+
+  }
+
+
+
+ </script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<script>
+                    const lenis = new Lenis({
+                        duration: 1.2,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                        direction: 'vertical',
+                        gestureDirection: 'vertical',
+                        smooth: true,
+                        mouseMultiplier: 1,
+                        smoothTouch: false,
+                        touchMultiplier: 2,
+                        infinite: false,
+                    })
+                    function raf(time) {
+                        lenis.raf(time)
+                        requestAnimationFrame(raf)
+                    }
+                    requestAnimationFrame(raf)
+                </script>
+<script>
+    (() => {
+      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!isFinePointer) return;
+      const cards = document.querySelectorAll('.stages-page .bento-grid > a.bento-card');
+      cards.forEach((card) => {
+        const onMove = (e) => {
+          const r = card.getBoundingClientRect();
+          const x = e.clientX - r.left;
+          const y = e.clientY - r.top;
+          const ry = ((x / r.width) - 0.5) * 5.5;
+          const rx = ((y / r.height) - 0.5) * -4.5;
+          card.style.setProperty('--mx', `${x}px`);
+          card.style.setProperty('--my', `${y}px`);
+          card.style.setProperty('--rx', `${rx}deg`);
+          card.style.setProperty('--ry', `${ry}deg`);
+          card.classList.add('is-tilting');
+        };
+        const onLeave = () => {
+          card.style.setProperty('--mx', '50%');
+          card.style.setProperty('--my', '50%');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--ry', '0deg');
+          card.classList.remove('is-tilting');
+        };
+        card.addEventListener('mousemove', onMove);
+        card.addEventListener('mouseleave', onLeave);
+      });
+    })();
+  </script>
+<script src="./ultra-fluid.js"></script>
+</body></html>
+
+
+
